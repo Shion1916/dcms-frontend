@@ -84,31 +84,31 @@ export const TimeSlotGrid: React.FC<TimeSlotGridProps> = ({
               onClick={() => !disabled && onSlotSelect(slotValue)}
               disabled={disabled}
               className={cn(
-                "relative p-3 rounded-lg border-2 transition-all duration-200 text-sm font-medium",
+                "relative p-3 rounded-lg border-CustomPink1 border-2 transition-all duration-200 text-sm font-medium",
                 "hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary/20",
                 disabled && "opacity-50 cursor-not-allowed",
-                !disabled && "hover:shadow-md hover:border-primary/50 hover:bg-accent",
+                !disabled && "hover:shadow-md hover:border-CustomPink1 hover:bg-CustomPink2",
                 isSelected
-                  ? "border-primary bg-primary text-primary-foreground shadow-md"
-                  : "border-border bg-card"
+                  ? "border-CustomPink1 bg-CustomPink1 text-black shadow-md"
+                  : "border-CustomPink1 bg-card"
               )}
             >
               <div className="flex flex-col items-center gap-1">
                 <span className={cn(
                   "font-medium",
-                  isSelected ? "text-primary-foreground" : "text-foreground"
+                  isSelected ? "text-white" : "text-foreground"
                 )}>
                   {formatTimeSlot(slot.startTime, slot.endTime)}
                 </span>
                 
                 {isSelected && (
-                  <CheckCircle2 className="h-3 w-3 text-primary-foreground" />
+                  <CheckCircle2 className="h-3 w-3 text-white" />
                 )}
               </div>
               
               {/* Selection indicator */}
               {isSelected && (
-                <div className="absolute inset-0 rounded-lg ring-2 ring-primary/30 ring-offset-1" />
+                <div className="absolute inset-0 rounded-lg ring-2 ring-CustomPink1 ring-offset-1"/>
               )}
             </button>
           );
@@ -116,7 +116,7 @@ export const TimeSlotGrid: React.FC<TimeSlotGridProps> = ({
       </div>
       
       <div className="text-xs text-muted-foreground text-center">
-        <p>Select your preferred time slot</p>
+        <p><strong>Select your preferred time slot</strong></p>
       </div>
     </div>
   );

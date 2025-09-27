@@ -434,8 +434,8 @@ export const HomeBookingForm: React.FC<
   }
 
   return (
-    <div className="w-full max-w-lg mx-auto">
-      <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+    <div className="w-full max-w-lg mx-auto ">
+      <Card className="shadow-lg border-0 bg-CustomPink2 backdrop-blur-sm">
         <CardHeader className="pb-4">
           <div className="text-center">
             <CardTitle className="text-2xl">
@@ -456,6 +456,7 @@ export const HomeBookingForm: React.FC<
                   First Name <span className="text-red-500">*</span>
                 </Label>
                 <Input
+                  className= "bg-CustomPink3 border-CustomPink1 border-2"
                   id="firstName"
                   placeholder="John"
                   value={formData.firstName}
@@ -474,6 +475,7 @@ export const HomeBookingForm: React.FC<
                   Last Name <span className="text-red-500">*</span>
                 </Label>
                 <Input
+                  className= "bg-CustomPink3 border-CustomPink1 border-2"
                   id="lastName"
                   placeholder="Smith"
                   value={formData.lastName}
@@ -495,6 +497,7 @@ export const HomeBookingForm: React.FC<
                 Email <span className="text-red-500">*</span>
               </Label>
               <Input
+                className= "bg-CustomPink3 border-CustomPink1 border-2"
                 id="email"
                 type="email"
                 placeholder="john@gmail.com"
@@ -521,6 +524,7 @@ export const HomeBookingForm: React.FC<
                 Phone Number (Optional)
               </Label>
               <Input
+                className= "bg-CustomPink3 border-CustomPink1 border-2"
                 id="phone"
                 type="tel"
                 placeholder="(555) 123-4567"
@@ -570,10 +574,12 @@ export const HomeBookingForm: React.FC<
                 disabled={isSubmitting}
                 required
               >
-                <SelectTrigger>
+                <SelectTrigger className = "bg-CustomPink3 border-CustomPink1 border-2">
                   <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent
+                  className = "bg-CustomPink3 border-CustomPink1 border-2"
+                >
                   {mockServicesCatalog.map((service) => (
                     <SelectItem
                       key={service.id}
@@ -594,6 +600,7 @@ export const HomeBookingForm: React.FC<
               <CalendarPopover
                 date={formData.date}
                 onSelect={handleDateChange}
+                className = "bg-CustomPink3 border-CustomPink1 border-2"
                 placeholder="Pick date"
                 disabled={isSubmitting || !formData.service}
               />
@@ -626,7 +633,8 @@ export const HomeBookingForm: React.FC<
             {/* Submit Button */}
             <Button
               type="submit"
-              className="w-full text-lg py-3"
+              className = "w-full text-lg py-3 border-CustomPink1 border-2"
+              variant="outline_pink"
               size="lg"
               disabled={
                 isSubmitting ||
@@ -645,10 +653,10 @@ export const HomeBookingForm: React.FC<
             </Button>
 
             {/* Contact Info */}
-            <div className="text-center text-sm text-gray-600 mt-4">
+            <div className="text-center text-sm text-gray-700 mt-4">
               <p>
                 Or call us directly at{" "}
-                <strong>(555) 123-DENTAL</strong>
+                <strong>(02)8671 9697 or 0962 850 1012</strong>
               </p>
               <p>
                 We're available Mon-Fri 8AM-6PM, Sat 9AM-4PM

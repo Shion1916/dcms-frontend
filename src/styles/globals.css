@@ -40,6 +40,10 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --CustomPink1: #FA6E92;
+  --CustomPink2: #FFE4EC;
+  --CustomPink3: #fff0f4;
+  --CustomPink4: #B6E2D3;
 }
 
 .dark {
@@ -77,6 +81,10 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+  --CustomPink1: #FA6E92;
+  --CustomPink2: #FFE4EC;
+  --CustomPink3: #fff0f4;
+  --CustomPink4: #B6E2D3;
 }
 
 @theme inline {
@@ -118,6 +126,10 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-CustomPink1: var(--CustomPink1);
+  --color-CustomPink2: var(--CustomPink2);
+  --color-CustomPink3: var(--CustomPink3);
+  --color-CustomPink4: var(--CustomPink4);
 }
 
 @layer base {

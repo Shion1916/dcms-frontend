@@ -4,7 +4,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from './ui/button';
 import { HomeBookingForm } from './HomeBookingForm';
-import { Calendar, Clock, Shield, Star, Phone, Mail, MapPin } from 'lucide-react';
+import { Calendar, Clock, Shield, Star, Phone, Mail, MapPin, Facebook } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 interface HomepageProps {
@@ -39,6 +39,13 @@ export function Homepage({ onLoginClick, onSignUpClick, onBookingSuccess }: Home
     }
   };
 
+  const scrollToAboutUs= () => {
+    const bookingSection = document.getElementById('aboutus-section');
+    if (bookingSection) {
+      bookingSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -46,13 +53,13 @@ export function Homepage({ onLoginClick, onSignUpClick, onBookingSuccess }: Home
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <h1 className="text-xl font-bold text-blue-600">Go-Goyagoy</h1>
+              <h1 className="text-xl font-bold text-CustomPink1">Go-Goyagoy</h1>
             </div>
             <div className="flex items-center space-x-4">
-              <Button variant="outline" onClick={handleLoginClick}>
+              <Button variant="outline_pink" onClick={handleLoginClick}>
                 Sign In
               </Button>
-              <Button onClick={handleSignUpClick}>
+              <Button variant="default_pink" onClick={handleSignUpClick}>
                 Sign Up
               </Button>
             </div>
@@ -61,30 +68,30 @@ export function Homepage({ onLoginClick, onSignUpClick, onBookingSuccess }: Home
       </nav>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-50 to-indigo-100 py-20">
+      <section className="bg-pink-200 py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
             <div>
               <h2 className="text-4xl font-extrabold text-gray-900 sm:text-5xl">
-                Your Smile is Our
-                <span className="text-blue-600"> Priority</span>
+                Get the Smile You've
+                <span className="text-CustomPink1"> Always Wanted!</span>
               </h2>
               <p className="mt-4 text-xl text-gray-600">
-                Modern dental care with a personal touch. Book your appointment today and experience the difference.
+                Book Your visit today and Let Us bring out Your best Smile!
               </p>
               <div className="mt-8 flex space-x-4">
                 <Button size="lg" onClick={scrollToBooking}>
                   Book Appointment
                 </Button>
-                <Button variant="outline" size="lg">
+                <Button variant="outline" size="lg" onClick={scrollToAboutUs}>
                   Learn More
                 </Button>
               </div>
             </div>
             <div className="mt-10 lg:mt-0">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="Modern dental office"
+                src = 'https://raw.githubusercontent.com/Shion1916/dcms-resources/refs/heads/main/img/Services/Homepage/5.png'
+                alt = "Modern dental office"
                 className="rounded-lg shadow-xl w-full h-96 object-cover"
               />
             </div>
@@ -93,45 +100,45 @@ export function Homepage({ onLoginClick, onSignUpClick, onBookingSuccess }: Home
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-white">
+      <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h3 className="text-3xl font-extrabold text-gray-900">
               Why Choose Go-Goyagoy?
             </h3>
             <p className="mt-4 text-lg text-gray-600">
-              We provide comprehensive dental care with state-of-the-art technology
+              At Go-Goyagoy Dental Clinic, you’ll experience safe, convenient, and personalized dental care.
             </p>
           </div>
 
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="flex justify-center">
-                <Calendar className="h-12 w-12 text-blue-600" />
+                <Calendar className="h-12 w-12 text-CustomPink1" />
               </div>
               <h4 className="mt-4 text-lg font-semibold">Easy Booking</h4>
               <p className="mt-2 text-gray-600">
-                Schedule your appointment online 24/7. Your booking is confirmed instantly.
+                You can schedule your appointment online anytime.
               </p>
             </div>
 
             <div className="text-center">
               <div className="flex justify-center">
-                <Shield className="h-12 w-12 text-blue-600" />
+                <Shield className="h-12 w-12 text-CustomPink1" />
               </div>
               <h4 className="mt-4 text-lg font-semibold">Safe & Secure</h4>
               <p className="mt-2 text-gray-600">
-                Your health and privacy are our top priorities with the latest safety protocols.
+                Your health and privacy are always protected with our strict safety protocols.
               </p>
             </div>
 
             <div className="text-center">
               <div className="flex justify-center">
-                <Star className="h-12 w-12 text-blue-600" />
+                <Star className="h-12 w-12 text-CustomPink1" />
               </div>
               <h4 className="mt-4 text-lg font-semibold">Expert Care</h4>
               <p className="mt-2 text-gray-600">
-                Our experienced dentists provide personalized treatment plans for every patient.
+                You’ll receive personalized treatment from experienced dentists who truly care about your smile.
               </p>
             </div>
           </div>
@@ -139,7 +146,7 @@ export function Homepage({ onLoginClick, onSignUpClick, onBookingSuccess }: Home
       </section>
 
       {/* Services Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-10 bg-pink-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h3 className="text-3xl font-extrabold text-gray-900">
@@ -150,19 +157,38 @@ export function Homepage({ onLoginClick, onSignUpClick, onBookingSuccess }: Home
             </p>
           </div>
 
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-4 gap-8">
             {[
-              'General Dentistry',
-              'Cosmetic Dentistry',
-              'Orthodontics',
-              'Oral Surgery',
-              'Preventive Care',
-              'Emergency Care'
+              {
+                title: 'General Dentistry',
+                img: 'https://raw.githubusercontent.com/Shion1916/dcms-resources/refs/heads/main/img/Services/Homepage/1.png',
+              },
+              {
+                title: 'Cosmetic Dentistry',
+                img: 'https://raw.githubusercontent.com/Shion1916/dcms-resources/refs/heads/main/img/Services/Homepage/2.png',
+              },
+              {
+                title: 'Orthodontics',
+                img: 'https://raw.githubusercontent.com/Shion1916/dcms-resources/refs/heads/main/img/Services/Homepage/3.png',
+              },
+              {
+                title: 'Oral Surgery',
+                img: 'https://raw.githubusercontent.com/Shion1916/dcms-resources/refs/heads/main/img/Services/Homepage/4.png',
+              },
             ].map((service, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-sm border">
-                <h4 className="text-lg font-semibold text-gray-900">{service}</h4>
+              <div
+                key={index}
+                className="bg-pink-100 p-6 rounded-lg shadow-sm border flex flex-col items-center text-center"
+              >
+                <img
+                  src={service.img}
+                  alt={service.title}
+                  className="w-50 h-50 object-contain mb-4"
+                />
+                <h4 className="text-lg font-semibold text-gray-900">{service.title}</h4>
                 <p className="mt-2 text-gray-600">
-                  Professional {service.toLowerCase()} services with the latest techniques and technology.
+                  Professional {service.title.toLowerCase()} services with the latest techniques and technology.
                 </p>
               </div>
             ))}
@@ -171,7 +197,7 @@ export function Homepage({ onLoginClick, onSignUpClick, onBookingSuccess }: Home
       </section>
 
       {/* Booking Section */}
-      <section id="booking-section" className="py-16 bg-white">
+      <section id="booking-section" className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-extrabold text-gray-900">
@@ -182,7 +208,7 @@ export function Homepage({ onLoginClick, onSignUpClick, onBookingSuccess }: Home
             </p>
           </div>
 
-          <div className="flex justify-center">
+          <div className="flex justify-center ">
             <HomeBookingForm 
               isOpen={true} 
               onClose={() => {}} 
@@ -193,7 +219,7 @@ export function Homepage({ onLoginClick, onSignUpClick, onBookingSuccess }: Home
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 bg-gray-50">
+      <section id="aboutus-section" className="py-5 bg-CustomPink2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-extrabold text-gray-900">
@@ -204,40 +230,49 @@ export function Homepage({ onLoginClick, onSignUpClick, onBookingSuccess }: Home
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="flex justify-center">
-                <Phone className="h-8 w-8 text-blue-600" />
+                <Phone className="h-8 w-8 text-CustomPink1" />
               </div>
               <h4 className="mt-4 font-semibold">Phone</h4>
-              <p className="mt-2 text-gray-600">(555) 123-CARE</p>
+              <p className="mt-2 text-gray-600">(02)8671 9697</p>
+              <p className="mt-2 text-gray-600">0962 850 1012</p>
             </div>
 
             <div className="text-center">
               <div className="flex justify-center">
-                <Mail className="h-8 w-8 text-blue-600" />
+                <Mail className="h-8 w-8 text-CustomPink1" />
               </div>
               <h4 className="mt-4 font-semibold">Email</h4>
-              <p className="mt-2 text-gray-600">info@go-goyagoy.com</p>
+              <p className="mt-2 text-gray-600">lorylie_go@yahoo.com</p>
             </div>
 
             <div className="text-center">
               <div className="flex justify-center">
-                <MapPin className="h-8 w-8 text-blue-600" />
+                <Facebook className="h-8 w-8 text-CustomPink1" />
+              </div>
+              <h4 className="mt-4 font-semibold">Social Media</h4>
+              <p className="mt-2 text-gray-600">Go-Goyagoy Dental Clinic</p>
+            </div>
+
+            <div className="text-center">
+              <div className="flex justify-center">
+                <MapPin className="h-8 w-8 text-CustomPink1" />
               </div>
               <h4 className="mt-4 font-semibold">Location</h4>
-              <p className="mt-2 text-gray-600">123 Dental Ave<br />Smile City, SC 12345</p>
+              <p className="mt-2 text-gray-600">98 Malolos Avenue<br />Bagong Barrio, Caloocan City</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8">
+      <footer className="bg-CustomPink1 py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h4 className="text-lg font-semibold">Go-Goyagoy</h4>
-            <p className="mt-2 text-gray-400">
+            <p className="mt-2 font-semibold">
               © 2024 Go-Goyagoy. All rights reserved.
             </p>
           </div>

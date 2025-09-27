@@ -237,21 +237,21 @@ function LoginPageContent() {
                            passwordErrors.length === 0;
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-CustomPink3 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900">
-            Go-Goyagoy
+          <h2 className="text-3xl font-bold text-CustomPink1">
+            <strong>Go-Goyagoy</strong>
           </h2>
-          <p className="mt-2 text-sm text-gray-600">
-            Sign in to your account or create a new one
+          <p className="mt-2 text-sm text-CustomPink1">
+            <strong>Sign in to your account or create a new one</strong>
           </p>
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="signin">Sign In</TabsTrigger>
-            <TabsTrigger value="signup">Sign Up</TabsTrigger>
+          <TabsList className="grid w-full h-10 grid-cols-2 bg-CustomPink2 border-2 border-grey-50">
+            <TabsTrigger value="signin"><strong>Sign In</strong></TabsTrigger>
+            <TabsTrigger value="signup"><strong>Sign Up</strong></TabsTrigger>
           </TabsList>
 
           {error && (
@@ -262,15 +262,16 @@ function LoginPageContent() {
           )}
 
           <TabsContent value="signin">
-            <Card>
+            <Card className="bg-CustomPink2 border-2 border-grey-50">
               <CardHeader>
-                <CardTitle>Sign In</CardTitle>
+                <CardTitle><strong>Sign In</strong></CardTitle>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSignIn} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="signin-email">Email</Label>
+                    <Label htmlFor="signin-email"><strong>Email</strong></Label>
                     <Input
+                      className= "bg-CustomPink3 border-CustomPink1 border-2"
                       id="signin-email"
                       type="email"
                       value={signInData.email}
@@ -281,9 +282,10 @@ function LoginPageContent() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="signin-password">Password</Label>
+                    <Label htmlFor="signin-password"><strong>Password</strong></Label>
                     <div className="relative">
                       <Input
+                        className= "bg-CustomPink3 border-CustomPink1 border-2"
                         id="signin-password"
                         type={showPassword.signIn ? "text" : "password"}
                         value={signInData.password}
@@ -299,9 +301,9 @@ function LoginPageContent() {
                         onClick={() => setShowPassword(prev => ({ ...prev, signIn: !prev.signIn }))}
                       >
                         {showPassword.signIn ? (
-                          <EyeOff className="h-4 w-4" />
-                        ) : (
-                          <Eye className="h-4 w-4" />
+                            <EyeOff className="h-4 w-4 text-CustomPink1" />
+                          ) : (
+                            <Eye className="h-4 w-4 text-CustomPink1" />
                         )}
                       </Button>
                     </div>
@@ -314,17 +316,17 @@ function LoginPageContent() {
                       className="px-0 h-auto text-sm"
                       onClick={() => router.push('/forgot-password')}
                     >
-                      Forgot your password?
+                      <strong>Forgot your password?</strong>
                     </Button>
                   </div>
 
-                  <Button type="submit" className="w-full" disabled={isLoading}>
+                  <Button type="submit" className="w-full" variant="outline_pink" disabled={isLoading}>
                     {isLoading ? 'Signing In...' : 'Sign In'}
                   </Button>
                 </form>
 
-                <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-                  <p className="text-sm text-gray-600 mb-2">Demo Accounts:</p>
+                <div className="mt-6 p-4 rounded-lg bg-CustomPink3 border-CustomPink1 border-2">
+                  <p className="text-sm mb-2"><strong>Demo Accounts:</strong></p>
                   <div className="text-xs space-y-1">
                     <div><strong>Admin:</strong> admin@localhost</div>
                     <div><strong>Dentist:</strong> dentist@dentalclinic.com</div>
@@ -342,17 +344,18 @@ function LoginPageContent() {
           </TabsContent>
 
           <TabsContent value="signup">
-            <Card>
+            <Card className="bg-CustomPink2 border-2 border-grey-50">
               <CardHeader>
-                <CardTitle>Create Account</CardTitle>
+                <CardTitle><strong>Create Account</strong></CardTitle>
               </CardHeader>
               <CardContent>
                 {signUpStep === 'form' ? (
                   <form onSubmit={handleSignUp} className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="signup-first-name">First Name</Label>
+                        <Label htmlFor="signup-first-name"><strong>First Name</strong></Label>
                         <Input
+                      className= "bg-CustomPink3 border-CustomPink1 border-2"
                           id="signup-first-name"
                           type="text"
                           value={signUpData.first_name}
@@ -362,8 +365,9 @@ function LoginPageContent() {
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="signup-last-name">Last Name</Label>
+                        <Label htmlFor="signup-last-name"><strong>Last Name</strong></Label>
                         <Input
+                      className= "bg-CustomPink3 border-CustomPink1 border-2"
                           id="signup-last-name"
                           type="text"
                           value={signUpData.last_name}
@@ -374,9 +378,11 @@ function LoginPageContent() {
                       </div>
                     </div>
 
+
                     <div className="space-y-2">
-                      <Label htmlFor="signup-email">Email</Label>
+                      <Label htmlFor="signup-email"><strong>Email</strong></Label>
                       <Input
+                        className= "bg-CustomPink3 border-CustomPink1 border-2"
                         id="signup-email"
                         type="email"
                         value={signUpData.email}
@@ -390,6 +396,7 @@ function LoginPageContent() {
                       <Label htmlFor="signup-password">Password</Label>
                       <div className="relative">
                         <Input
+                          className= "bg-CustomPink3 border-CustomPink1 border-2"
                           id="signup-password"
                           type={showPassword.signUp ? "text" : "password"}
                           value={signUpData.password}
@@ -405,9 +412,9 @@ function LoginPageContent() {
                           onClick={() => setShowPassword(prev => ({ ...prev, signUp: !prev.signUp }))}
                         >
                           {showPassword.signUp ? (
-                            <EyeOff className="h-4 w-4" />
+                            <EyeOff className="h-4 w-4 text-CustomPink1" />
                           ) : (
-                            <Eye className="h-4 w-4" />
+                            <Eye className="h-4 w-4 text-CustomPink1" />
                           )}
                         </Button>
                       </div>
@@ -417,6 +424,7 @@ function LoginPageContent() {
                       <Label htmlFor="signup-confirm-password">Confirm Password</Label>
                       <div className="relative">
                         <Input
+                          className= "bg-CustomPink3 border-CustomPink1 border-2"
                           id="signup-confirm-password"
                           type={showPassword.confirm ? "text" : "password"}
                           value={signUpData.confirmPassword}
@@ -432,9 +440,9 @@ function LoginPageContent() {
                           onClick={() => setShowPassword(prev => ({ ...prev, confirm: !prev.confirm }))}
                         >
                           {showPassword.confirm ? (
-                            <EyeOff className="h-4 w-4" />
+                            <EyeOff className="h-4 w-4 text-CustomPink1" />
                           ) : (
-                            <Eye className="h-4 w-4" />
+                            <Eye className="h-4 w-4 text-CustomPink1" />
                           )}
                         </Button>
                       </div>
@@ -470,10 +478,10 @@ function LoginPageContent() {
                 ) : (
                   <div className="text-center space-y-4">
                     <div className="flex justify-center">
-                      <Mail className="h-16 w-16 text-blue-600" />
+                      <Mail className="h-16 w-16 text-CustomPink1" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900">Check your email</h3>
+                      <h3 className="text-lg font-semibold text-gray-900"><strong>Check your email</strong></h3>
                       <p className="text-sm text-gray-600 mt-2">
                         We've sent a validation link to <strong>{pendingEmail}</strong>
                       </p>
@@ -484,17 +492,16 @@ function LoginPageContent() {
                     <div className="space-y-2">
                       <Button 
                         onClick={handleResendValidationEmail}
-                        variant="outline" 
-                        className="w-full"
+                        variant="ghost_pink" 
+                        className="w-60"
                       >
-                        Resend validation email
+                        <strong>Resend validation email</strong>
                       </Button>
                       <Button 
                         onClick={() => setSignUpStep('form')}
-                        variant="ghost" 
-                        className="w-full"
+                        variant="ghost_pink"
                       >
-                        ← Back to sign up form
+                        <strong>← Back to sign up form</strong>
                       </Button>
                     </div>
                   </div>
@@ -506,11 +513,11 @@ function LoginPageContent() {
 
         <div className="text-center">
           <Button 
-            variant="ghost" 
+            variant="ghost_pink" 
             onClick={() => router.push('/')}
-            className="text-sm text-gray-600 hover:text-gray-900"
+            className="text-sm text-gray-600"
           >
-            ← Back to Homepage
+            <strong>← Back to Homepage</strong>
           </Button>
         </div>
       </div>

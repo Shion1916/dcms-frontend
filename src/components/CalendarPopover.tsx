@@ -49,7 +49,7 @@ export const CalendarPopover: React.FC<CalendarPopoverProps> = ({
           {date ? format(date, "EEEE, MMM dd, yyyy") : placeholder}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-auto p-0" align="start">
+      <PopoverContent className="w-auto p-0 bg-CustomPink3 border-CustomPink1 border-2" align="start">
         <Calendar
           mode="single"
           selected={date}
